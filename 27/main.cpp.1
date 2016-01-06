@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int j = nums.size() - 1;
+        int i;
+        int t;
+
+        for (i=0; i<=j; ++i) {
+            if (nums[i] == val) {
+                if (i == j) {
+                    nums.resize(i);
+                    return i;
+                } else {
+                    nums[i] = nums[j];
+                    --j;
+                    --i;
+                }
+            }
+        }
+
+        nums.resize(j+1);
+        return j + 1;
+    }
+};
+
+int main(int argc, char* argv[])
+{
+    vector<int> nums;
+    int val;
+    int num;
+
+    cin >> val;
+
+    cin >> num;
+    while (num != -999999)
+    {
+        nums.push_back(num);
+        cin >> num;
+    }
+
+    Solution solution;
+    int size = solution.removeElement(nums, val);
+
+    cout << size << endl;
+}
