@@ -22,26 +22,25 @@ public:
             return true;
         }
 
-        int height = 0;
-        return isBalanced(root, height);
+        int lh;
+        int rh;
+        return isBalanced(root->left, lh) &&
+                isBalanced(root->right, rh) &&
+                (lh - rh <=1) &&
+                (lh - rh >=-1);
     }
 
     bool isBalanced(TreeNode* root, int& height) {
-        int lh = 0;
-        int rh = 0;
-        if (root->left == NULL) {
-            lh = 0;
-        } else if (!isBalanced(root->left, lh)) {
-            return false;
+        int lh;
+        int rh;
+        if (NULL == root) {
+            height = 0;
+            return true;
         }
 
-        if (root->right == NULL) {
-            rh = 0;
-        } else if (!isBalanced(root->right, rh)) {
-            return false;
-        }
-
-        if ((lh - rh > 1) ||
+        if (!isBalanced(root->left, lh) ||
+            !isBalanced(root->right, rh) ||
+            (lh - rh > 1) ||
             (lh - rh < -1) ) {
             return false;
         }
@@ -50,3 +49,4 @@ public:
         return true;
     }
 };
+
