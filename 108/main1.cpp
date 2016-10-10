@@ -26,23 +26,16 @@ public:
     }
 
 	TreeNode* sortedArrayToBST(vector<int>& nums, int start, int end) {
-		TreeNode* root = NULL;
-		switch(end-start) {
-		case 1:
-			root = new TreeNode(nums[start]);
+		if (end <= start + 1) {
+			TreeNode* root = new TreeNode(nums[start]);
 			return root;
-		case 2:
-			root = new TreeNode(nums[start+1]);
+		} else if (end == start + 2) {
+			TreeNode* root = new TreeNode(nums[start+1]);
 			root->left = new TreeNode(nums[start]);
 			return root;
-		case 3:
-			root = new TreeNode(nums[start+1]);
-			root->left = new TreeNode(nums[start]);
-			root->right = new TreeNode(nums[start+2]);
-			return root;
-		default:
+		} else {
 			int median = (start + end) / 2;
-			root = new TreeNode(nums[median]);
+			TreeNode* root = new TreeNode(nums[median]);
 			root->left = sortedArrayToBST(nums, start, median);
 			root->right = sortedArrayToBST(nums, median + 1, end);
 			return root;
