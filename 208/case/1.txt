@@ -1,0 +1,11 @@
+1 abc
+1 abcd
+1 abcde
+2 abc
+2 abcd
+2 abcde
+2 abcdef
+3 abc
+3 abcde
+3 abcdef
+-999999
