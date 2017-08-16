@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include <unordered_set>
 
 using namespace std;
 
@@ -19,19 +20,25 @@ class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         int result = 0;
-        return checkLCA(root, p, q, result);
+        unordered_set<int> route;
+        return checkLCA(root, p, q, result, route);
     }
 
-    TreeNode* checkLCA(TreeNode* root, TreeNode* p, TreeNode* q, int& result) {
+    TreeNode* checkLCA(TreeNode* root,
+                        TreeNode* p,
+                        TreeNode* q,
+                        int& result,
+                        unordered_set<int>& route) {
         if (NULL == root) return NULL;
-
+        if (route.count((unsigned long)root) > 0) return NULL;
+        route.insert((unsigned long)root);
         TreeNode *res = NULL;
         int leftResult = 0;
-        if (NULL != (res = checkLCA(root->left, p, q, leftResult))) {
+        if (NULL != (res = checkLCA(root->left, p, q, leftResult, route))) {
             return res;
         }
         int rightResult = 0;
-        if (NULL != (res = checkLCA(root->right, p, q, rightResult))) {
+        if (NULL != (res = checkLCA(root->right, p, q, rightResult, route))) {
             return res;
         }
         result |= leftResult;
@@ -44,6 +51,7 @@ public:
         if (3 == result) {
              return root;
         }
+        route.erase((unsigned long)root);
         return NULL;
     }
 };
