@@ -19,39 +19,32 @@ public:
     bool isPalindrome(ListNode* head) {
         if ((NULL == head) || (NULL == head->next)) return true;
 
-        ListNode *center = head;
-        ListNode *cur = head;
-        while (NULL != cur) {
-            cur = cur->next;
-            if (NULL != cur) {
-                cur = cur->next;
-            }
-            if (NULL != cur) {
-                center = center->next;
-            }
-        }
-
+        ListNode *end = head;
         ListNode *tail = NULL;
-        cur = center->next;
-        center->next = NULL;
+        ListNode *newHead = head;
+        ListNode *cur;
 
-        while (cur != NULL) {
-            center = cur->next;
-            cur->next = tail;
-            tail = cur;
-            cur = center;
-        }
-        center = tail;
-        cur = head;
+        while (NULL != end) {
+            end = end->next;
+            if (NULL != end) {
+                end = end->next;
 
-        while (NULL != center) {
-            if (center->val != cur->val) {
-                return false;
+                cur = newHead->next;
+                newHead->next = tail;
+                tail = newHead;
+                newHead = cur;
+            } else {
+                newHead = newHead->next;
             }
-            center = center->next;
+        }
+
+        end = newHead;
+        cur = tail;
+        while (NULL != end) {
+            if (end->val != cur->val) return false;
+            end = end->next;
             cur = cur->next;
         }
-
         return true;
     }
 };
