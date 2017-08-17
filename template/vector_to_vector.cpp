@@ -33,21 +33,21 @@ public:
 
 int main(int argc, char* argv[])
 {
-	int n;
-	vector<int> digits;
-	vector<int> result;
+    int n;
+    vector<int> digits;
+    vector<int> result;
 
-	cin >> n;
-	while (n != -999999) {
-		digits.push_back(n);
-		cin >> n;
-	}
-		
+    cin >> n;
+    while (n != -999999) {
+        digits.push_back(n);
+        cin >> n;
+    }
+        
     Solution solution;
-	result = solution.plusOne(digits);
-	for (int i=0; i<result.size(); ++i) {
-		cout << result[i] << endl;
-	}
+    result = solution.plusOne(digits);
+    for (int i=0; i<result.size(); ++i) {
+        cout << result[i] << endl;
+    }
 
     return 0;
 }
