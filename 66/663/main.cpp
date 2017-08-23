@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <unordered_set>
 
 using namespace std;
 
@@ -19,8 +20,33 @@ struct TreeNode {
 
 class Solution {
 public:
-    int action(TreeNode* root) {
-        return 0;
+    bool checkEqualTree(TreeNode* root) {
+        if (NULL == root) return false;
+        unordered_set<int> sums;
+        int sum = checkSum(root, sums);
+        if ( (sum % 2 == 0)
+                && (sums.find(sum/2) != sums.end())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    int checkSum(TreeNode* root, unordered_set<int>& sums) {
+        int sum = 0;
+        int tmpSum = 0;
+        if (root->left) {
+            tmpSum = checkSum(root->left, sums);
+            sums.insert(tmpSum);
+            sum += tmpSum;
+        }
+        if (root->right) {
+            tmpSum = checkSum(root->right, sums);
+            sums.insert(tmpSum);
+            sum += tmpSum;
+        }
+        sum += root->val;
+        return sum;
     }
 };
 
@@ -110,10 +136,10 @@ int main(int argc, char* argv[])
     TreeNode* root = composeTree();
         
     Solution solution;
-    cout << solution.action(root) << endl;
+    cout << (solution.checkEqualTree(root) ? "true" : "false") << endl;
 
-    unsigned index = 1;
-    printNode(root, 0, index);
+    //unsigned index = 1;
+    //printNode(root, 0, index);
 
     clearTree(root);
 
