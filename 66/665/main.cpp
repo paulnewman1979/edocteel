@@ -14,14 +14,21 @@ public:
         if (size <= 2) {
             return true;
         }
-        for (i = 0; i < nums.size() - 1; ++i) {
+        if (nums[0] > nums[1]) {
+            ++count;
+        }
+        if (nums[size - 2] > nums[size - 1]) {
+            ++count;
+        }
+        if (count > 1) {
+            return false;
+        }
+
+        for (i = 1; i < nums.size() - 2; ++i) {
             if (nums[i] > nums[i + 1]) {
                 ++count;
                 if (count > 1) {
                     return false;
-                } else if (i == 0) {
-                } else if (i + 2 == size) {
-                    return true;
                 } else if (nums[i] <= nums[i + 2]) {
                     ++i;
                 } else if (nums[i - 1] <= nums[i + 1]) {
