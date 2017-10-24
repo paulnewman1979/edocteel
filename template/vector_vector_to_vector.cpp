@@ -7,8 +7,9 @@ using namespace std;
 
 class Solution {
 public:
-    int findRedundantDirectedConnection(vector<vector<int>>& edges) {
-        return 0;
+    vector<int> findRedundantDirectedConnection(vector<vector<int>>& edges) {
+        vector<int> result;
+        return result;
     }
 };
 
@@ -34,7 +35,11 @@ int main(int argc, char* argv[])
 	}
 
     Solution solution;
-	cout << solution.findRedundantDirectedConnection(edges) << endl;
+	edge = solution.findRedundantDirectedConnection(edges);
+    for (int i = 0; i < edge.size(); ++i) {
+        cout << edge[i] << endl;
+    }
+    cout << endl;
 
     return 0;
 }
