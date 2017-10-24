@@ -7,24 +7,27 @@ using namespace std;
 
 class Solution {
 public:
-    int maxProfit(vector<int>& prices) {
-        return curMax;
+    int calPoints(vector<string>& ops) {
+        int result = 0;
+        return result;
     }
 };
 
 int main(int argc, char* argv[])
 {
     int n;
-    vector<int> prices;
+    vector<string> ops;
+    string op;
 
     cin >> n;
-    while (n != -999999) {
-        prices.push_back(n);
+    while (n > 0) {
+        cin >> op;
+        ops.push_back(op);
         cin >> n;
     }
         
     Solution solution;
-    cout << solution.maxProfit(prices) << endl;
+    cout << solution.calPoints(ops) << endl;
 
     return 0;
 }
