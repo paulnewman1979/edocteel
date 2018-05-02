@@ -74,6 +74,12 @@ int main(int argc, char* argv[])
 
     Solution solution;
 	vector< vector<string> > results = solution.solveNQueens(n);
+    for (int i = 0; i < results.size(); ++i) {
+        for (int j = 0; j < results[i].size(); ++j) {
+            std::cout << results[i][j] << std::endl;
+        }
+        std::cout << endl;
+    }
 
     return 0;
 }
