@@ -7,65 +7,64 @@ using namespace std;
 
 class Solution {
 public:
-	void solveNQueens(vector<int>& column,
-						vector<int>& pivot1,
-						vector<int>& pivot2,
-						int n,
-						int x,
-						vector< vector<string> >& results,
-						vector<int>& pos)
-	{
-		for (int y=0; y<n; ++y) {
-			if (column[y] && pivot1[x+y] && pivot2[x + n - 1 - y]) {
-				if (n - 1 == x) {
-					vector<string> result;
-					for (int i=0; i<pos.size(); ++i) {
-						result.push_back(getString(pos[i], n));
-					}
-					result.push_back(getString(y, n));
-					results.push_back(result);
-				} else {
-					column[y] = 0;
-					pivot1[x+y] = 0;
-					pivot2[x+n-y-1] = 0;
-					pos.push_back(y);
-
-					solveNQueens(column, pivot1, pivot2, n, x+1, results, pos);
-
-					column[y] = 1;
-					pivot1[x+y] = 1;
-					pivot2[x+n-y-1] = 1;
-					pos.pop_back();
-				}
-			}
-		}
-	}
-
     vector< vector<string> > solveNQueens(int n)
 	{
-		vector< vector<string> > results;
-		vector<int> column(n, 1);
-		vector<int> pivot1(n * 2 - 1, 1);
-		vector<int> pivot2(n * 2 - 1, 1);
-		vector<int> pos;
+        n_ = n;
+		columnMask_.resize(n, 1);
+        pivot1Mask_.resize(n * 2 - 1, 1);
+        pivot2Mask_.resize(n * 2 - 1, 1);
+        pos_.resize(n, 0);
 
-		solveNQueens(column, pivot1, pivot2, n, 0, results, pos);
+        constructString();
 
-		return results;
+        solveNQueens_(0);
+        
+        return results_;
     }
 
-	string getString(int pos, int n)
-	{
-		static vector<string> Q(n, string(n, '.'));
-		static bool first = true;
-		if (first) {
-			for (int i=0; i<n; ++i) {
-				Q[i][i] = 'Q';
-			}
-			first = false;
-		}
-		return Q[pos];
-	}
+    void constructString() {
+        std::string str(n_, '.');
+        int i;
+        for (i = 0; i < n_; ++i) {
+            printStr_.push_back(str);
+            printStr_.back()[i] = 'Q';
+        }
+    }
+
+    void solveNQueens_(const int y) {
+        for (int x = 0; x < n_; ++x) {
+            if (columnMask_[x] & pivot1Mask_[x + y] & pivot2Mask_[n_ - 1 - x + y]) {
+                if (y == n_ - 1) {
+                    pos_[y] = x;
+                    vector<std::string> result;
+                    for (int i = 0; i < pos_.size(); ++i) {
+                        result.push_back(printStr_[pos_[i]]);
+                    }
+                    results_.push_back(result);
+                } else {
+                    columnMask_[x] = 0;
+                    pivot1Mask_[x + y] = 0;
+                    pivot2Mask_[n_ - 1 - x + y] = 0;
+                    pos_[y] = x;
+
+                    solveNQueens_(y + 1);
+
+                    columnMask_[x] = 1;
+                    pivot1Mask_[x + y] = 1;
+                    pivot2Mask_[n_ - 1 - x + y] = 1;
+                }
+            }
+        }
+    }
+
+private:
+    int n_;
+    vector<int> columnMask_;
+    vector<int> pivot1Mask_;
+    vector<int> pivot2Mask_;
+    vector<int> pos_;
+    vector<std::string> printStr_;
+    vector< vector<string> > results_;
 };
 
 int main(int argc, char* argv[])
@@ -75,14 +74,6 @@ int main(int argc, char* argv[])
 
     Solution solution;
 	vector< vector<string> > results = solution.solveNQueens(n);
-	for (int i=0; i<results.size(); ++i) {
-		for (int j=0; j<results[i].size(); ++j) {
-			cout << results[i][j] << endl;
-		}
-		cout << endl;
-	}
-
-	cout << "size = " << results.size() << endl;
 
     return 0;
 }
