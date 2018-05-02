@@ -7,43 +7,37 @@ using namespace std;
 
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) {
-		int sum = 0;
-		int sumMax = (nums.size()>0)?nums[0]:0;
-		int i;
-		for (i=0; i<nums.size(); ++i) {
-			if (nums[i] >= 0) {
-				sum += nums[i];
-				if (sum > sumMax) {
-					sumMax = sum;
-				}
-			} else {
-				sum += nums[i];
-				if (sum > sumMax) {
-					sumMax = sum;
-				}
-				if (sum < 0) {
-					sum = 0;
-				}
-			}
-		}
+    bool canJump(vector<int>& nums) {
+        vector<bool> mark(nums.size(), false);
+        int i, j;
+        mark[0] = true;
+        for (i = 0; i < nums.size(); ++i) {
+            if (mark[i]) {
+                for (j = 1; j <= nums[i]; ++j) {
+                    mark[i + j] = true;
+                }
+            }
+        }
 
-		return sumMax;
+        return mark[nums.size() - 1];
     }
 };
 
 int main(int argc, char* argv[])
 {
-	vector<int> nums;
-	int n;
-	cin >> n;
-	while (n != -999999) {
-		nums.push_back(n);
-		cin >> n;
-	}
+    int n;
+    int value;
+    vector<int> nums;
 
+    cin >> n;
+    while (n > 0) {
+        cin >> value;
+        nums.push_back(value);
+        --n;
+    }
+        
     Solution solution;
-	cout << solution.maxSubArray(nums) << endl;
+    cout << (solution.canJump(nums) ? "true" : "false") << endl;
 
     return 0;
 }
