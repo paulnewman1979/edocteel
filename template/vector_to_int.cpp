@@ -7,27 +7,26 @@ using namespace std;
 
 class Solution {
 public:
-    int calPoints(vector<string>& ops) {
-        int result = 0;
-        return result;
+    int rob(vector<int>& nums) {
+        return 0;
     }
 };
 
 int main(int argc, char* argv[])
 {
     int n;
-    vector<string> ops;
-    string op;
+    vector<int> nums;
+    int num;
 
     cin >> n;
     while (n > 0) {
-        cin >> op;
-        ops.push_back(op);
-        cin >> n;
+        cin >> num;
+        nums.push_back(num);
+        --n;
     }
         
     Solution solution;
-    cout << solution.calPoints(ops) << endl;
+    cout << solution.rob(nums) << endl;
 
     return 0;
 }
