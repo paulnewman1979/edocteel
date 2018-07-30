@@ -7,34 +7,34 @@ using namespace std;
 
 class Solution {
 public:
-    int findRedundantDirectedConnection(vector<vector<int>>& edges) {
+    int numIslands(vector<vector<char> >& grid) {
         return 0;
     }
 };
 
 int main(int argc, char* argv[])
 {
-	vector< vector<int> > edges;
-	vector<int> edge;
+    vector< vector<char> > grid;
+    vector<char> line;
 
-	int n;
+    int n;
     int n1;
-    int value;
-	cin >> n;
-	while (n > 0) {
+    char value;
+    cin >> n;
+    while (n > 0) {
         cin >> n1;
-        edge.clear();
+        line.clear();
         while (n1 > 0) {
             cin >> value;
-            edge.push_back(value);
+            line.push_back(value);
             --n1;
         }
-	    edges.push_back(edge);
+        grid.push_back(line);
         --n;
-	}
+    }
 
     Solution solution;
-	cout << solution.findRedundantDirectedConnection(edges) << endl;
+    cout << solution.numIslands(grid) << endl;
 
     return 0;
 }
