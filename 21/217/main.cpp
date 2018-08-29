@@ -2,19 +2,19 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
-#include <unordered_set>
+#include <unordered_map>
 
 using namespace std;
 
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> numSet;
+        unordered_map<int, int> numSet;
         for (int i = 0; i < nums.size(); ++i) {
-            if (numSet.find(nums[i]) != numSet.end()) {
+            numSet[nums[i]]++;
+            if (numSet[nums[i]] > 1) {
                 return true;
             }
-            numSet.insert(nums[i]);
         }
         return false;
     }
