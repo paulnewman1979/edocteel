@@ -1,0 +1,82 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <stdio.h>
+#include <unordered_set>
+#include <iterator>
+
+using namespace std;
+
+class Solution {
+public:
+    bool containsNearbyAlmostDuplicate(vector<int>& nums, int k, int t) {
+        int i;
+        vector<int> sortedNums;
+        vector<int>::const_iterator iter;
+
+        for (i = 0; i < nums.size(); ++i) {
+            //cout << "i=" << i << ", " << nums[i] << endl;
+            if (i > k) {
+                iter = lower_bound(sortedNums.begin(), sortedNums.end(), nums[i - k - 1]);
+                //cout << "erase: " << *iter << endl;
+                sortedNums.erase(iter);
+                //cout << "\t";
+                //for (int j = 0; j < sortedNums.size(); ++j) {
+                //  cout << sortedNums[j] << " ";
+                //}
+                //cout << endl;
+            }
+
+            iter = lower_bound(sortedNums.begin(), sortedNums.end(), nums[i]);
+            if (iter != sortedNums.end()) {
+                //cout << "check lower " << (*iter) << endl;
+            }
+            if ((iter != sortedNums.end()) && (*iter <= t + nums[i])) {
+                //cout << "found more than: " << *iter << ", t=" << t << ", nums[i]=" << nums[i] << endl;
+                return true;
+            }
+
+            if (iter != sortedNums.begin()) {
+                --iter;
+                if (nums[i] <= *iter + t) {
+                    //cout << "found less than: " << *iter << ", t=" << t << ", nums[i]=" << nums[i] << endl;
+                    return true;
+                }
+            }
+
+            sortedNums.push_back(nums[i]);
+            sort(sortedNums.begin(), sortedNums.end());
+
+            //cout << "\t";
+            //for (int j = 0; j < sortedNums.size(); ++j) {
+            //    cout << sortedNums[j] << " ";
+            //}
+            //cout << endl;
+        }
+
+        return false;
+    }
+};
+
+int main(int argc, char* argv[])
+{
+    int k;
+    int t;
+    int n;
+    int num;
+    vector<int> nums;
+
+    cin >> k;
+    cin >> t;
+    cin >> n;
+    while (n > 0) {
+        cin >> num;
+        nums.push_back(num);
+        --n;
+    }
+        
+    Solution solution;
+    cout << (solution.containsNearbyAlmostDuplicate(nums, k, t) ? "true" : "false") << endl;
+
+    return 0;
+}
