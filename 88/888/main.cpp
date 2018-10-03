@@ -12,21 +12,18 @@ public:
         vector<int> result;
         int i;
         int diff = 0;
+        unordered_set<int> aset;
         for (i = 0; i < A.size(); ++i) {
             diff += A[i];
+            aset.insert(A[i]);
         }
         for (i = 0; i < B.size(); ++i) {
             diff -= B[i];
         }
         diff = diff>>1;
 
-        unordered_set<int> aset;
-        for (i = 0; i < A.size(); ++i) {
-            aset.insert(A[i] - diff);
-        }
-
         for (i = 0; i < B.size(); ++i) {
-            if (aset.find(B[i]) != aset.end()) {
+            if (aset.find(B[i] + diff) != aset.end()) {
                 result.push_back(B[i] + diff);
                 result.push_back(B[i]);
                 break;
