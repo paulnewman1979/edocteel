@@ -19,8 +19,45 @@ struct TreeNode {
 
 class Solution {
 public:
-    int action(TreeNode* root) {
-        return 0;
+    vector<TreeNode*> allPossibleFBT(int N) {
+        vector< vector<TreeNode*> > results;
+        results.push_back(vector<TreeNode*>());
+        if (N % 2 == 0) {
+            return results[0];
+        }
+
+        results[0].push_back(new TreeNode(0));
+        if (N == 1) {
+            return results[0];
+        }
+
+        results.push_back(vector<TreeNode*>());
+        TreeNode* cur = new TreeNode(0);
+        cur->left = new TreeNode(0);;
+        cur->right = new TreeNode(0);
+        results[1].push_back(cur);
+        if (N == 3) {
+            return results[1];
+        }
+
+        int n = (N - 1) / 2;
+        int i, j, k, l, m;
+        for (i = 2; i <= n; ++i) {
+            results.push_back(vector<TreeNode*>());
+            for (j = 0; j <= i - 1; ++j) {
+                k = i - 1 - j;
+                for (l = 0; l < results[j].size(); ++l) {
+                    for (m = 0; m < results[k].size(); ++m) {
+                        cur = new TreeNode(0);
+                        cur->left = results[j][l];
+                        cur->right = results[k][m];
+                        results[i].push_back(cur);
+                    }
+                }
+            }
+        }
+
+        return results[n];
     }
 };
 
@@ -109,15 +146,17 @@ void clearTree(TreeNode* root) {
 
 int main(int argc, char* argv[])
 {
-    TreeNode* root = composeTree();
+    int N;
         
     Solution solution;
-    cout << solution.action(root) << endl;
-
-    unsigned index = 1;
-    printNode(root, 0, index);
-
-    clearTree(root);
+    cin >> N;
+    vector<TreeNode*> result = solution.allPossibleFBT(N);
+    for (int i = 0; i < result.size(); ++i) {
+        unsigned index = 1;
+        printNode(result[i], 0, index);
+        cout << endl;
+        //clearTree(result[i]);
+    }
 
     return 0;
 }
