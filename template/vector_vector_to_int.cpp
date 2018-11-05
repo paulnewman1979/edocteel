@@ -7,34 +7,37 @@ using namespace std;
 
 class Solution {
 public:
-    int numIslands(vector<vector<char> >& grid) {
+    //int minRefuelStops(int target, int startFuel, vector<vector<int>>& stations) {
+    int minRefuelStops(vector<vector<int>>& stations) {
         return 0;
     }
 };
 
 int main(int argc, char* argv[])
 {
-    vector< vector<char> > grid;
-    vector<char> line;
+    // input
+    vector< vector<int> > valueGrid;
 
+    // variable
     int n;
-    int n1;
-    char value;
+    int nn;
+    vector<int> valueLine;
+    int value;
+
+    // input
     cin >> n;
-    while (n > 0) {
-        cin >> n1;
-        line.clear();
-        while (n1 > 0) {
+    while (n-- > 0) {
+        cin >> nn;
+        valueLine.clear();
+        while (nn-- > 0) {
             cin >> value;
-            line.push_back(value);
-            --n1;
+            valueLine.push_back(value);
         }
-        grid.push_back(line);
-        --n;
+        valueGrid.push_back(valueLine);
     }
 
     Solution solution;
-    cout << solution.numIslands(grid) << endl;
+    cout << solution.minRefuelStops(valueGrid) << endl;
 
     return 0;
 }
