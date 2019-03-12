@@ -17,8 +17,8 @@ int main(int argc, char* argv[])
 	string a;
 	string b;
 
-	cin >> a;
-	cin >> b;
+	getline(cin, a);
+	getline(cin, b);
     Solution solution;
 	cout << solution.addBinary(a, b) << endl;
 

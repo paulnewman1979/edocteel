@@ -18,8 +18,8 @@ int main(int argc, char* argv[])
 	string a;
 	string b;
 
-	cin >> a;
-	cin >> b;
+	getline(cin, a);
+	getline(cin, b);
     Solution solution;
 	vector<string> result = solution.uncommonFromSentences(a, b);
     for (int i = 0; i < result.size(); ++i) {
