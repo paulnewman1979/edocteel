@@ -1,0 +1,8 @@
+abcd
+2 0 2
+2
+a
+cd
+2
+eee
+ffff
