@@ -2,26 +2,38 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include <assert.h>
+#include <stdlib.h>
 
 using namespace std;
 
+/**
+ * Definition for a binary tree node.
+ */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 class Solution {
 public:
-    vector<int> splitIntoFibonacci(string S) {
-        vector<int> results;
+    vector<string> ambiguousCoordinates(string S) {
+        vector<string> results;
         return results;
-	}
+    }
 };
 
 int main(int argc, char* argv[])
 {
-    string str;
-	getline(std::cin, str);
+    string S;
+    getline(cin, S);
 
     Solution solution;
-    vector<int> results = solution.splitIntoFibonacci(str);
-    for (int i = 0; i < results.size(); ++i) {
-        cout << results[i] << endl;
+    vector<string> result = solution.ambiguousCoordinates(S);
+    for (auto i : result) {
+        cout << i << endl;
     }
 
     return 0;
