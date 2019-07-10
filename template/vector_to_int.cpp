@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include "Input.hh"
+#include "Output.hh"
 
 using namespace std;
 
@@ -14,19 +16,16 @@ public:
 
 int main(int argc, char* argv[])
 {
-    int n;
+    // input
     vector<string> values;
-    string value;
+    Input(values);
 
-    cin >> n;
-    while (n > 0) {
-        cin >> value;
-        values.push_back(value);
-        --n;
-    }
-        
+    // solution
     Solution solution;
-    cout << solution.numSpecialEquivGroups(values) << endl;
+    int ret = solution.numSpecialEquivGroups(values);
+
+    // output
+    Output(ret);
 
     return 0;
 }

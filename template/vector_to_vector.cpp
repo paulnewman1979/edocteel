@@ -2,38 +2,31 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include "Input.hh"
+#include "Output.hh"
 
 using namespace std;
 
 class Solution {
 public:
-    vector<string> topKFrequent(vector<string>& words, int k) {
-        vector<string> result;
-        return result;
+    vector<int> topKFrequent(vector<int>& words) {
+        vector<int> ret;
+        return ret;
     }
 };
 
 int main(int argc, char* argv[])
 {
-    int n;
-    int k;
-    vector<string> words;
-    vector<string> result;
-    string word;
+    // input
+    vector<int> words;
+    Input(words);
 
-    cin >> k;
-    cin >> n;
-    while (n != 0) {
-        cin >> word;
-        words.push_back(word);
-        --n;
-    }
-        
+    // solution
     Solution solution;
-    result = solution.topKFrequent(words, k);
-    for (int i=0; i<result.size(); ++i) {
-        cout << result[i] << endl;
-    }
+    vector<int> ret = solution.topKFrequent(words);
+
+    // output
+    Output(ret);
 
     return 0;
 }
