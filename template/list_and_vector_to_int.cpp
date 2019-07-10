@@ -16,8 +16,8 @@ struct ListNode {
 
 class Solution {
 public:
-    bool isPalindrome(ListNode* head) {
-        return true;
+    int numComponents(ListNode* head, vector<int>& G) {
+        return 0;
     }
 };
 
@@ -49,11 +49,17 @@ int main(int argc, char* argv[])
 		nums.push_back(val);
         --n;
 	}
-
     ListNode* root = load(nums);
+
+    cin >> n;
+    while (n > 0) {
+        cin >> val;
+        nums.push_back(val);
+        --n;
+    }
 		
     Solution solution;
-	cout << (solution.isPalindrome(root) ? "true" : "false") << endl;
+	cout << solution.numComponents(root, nums) << endl;
 
     return 0;
 }
