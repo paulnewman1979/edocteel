@@ -2,8 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
-#include "Input.hh"
-#include "Output.hh"
+#include "../../template/common/Input.hh"
+#include "../../template/common/Output.hh"
 
 using namespace std;
 
