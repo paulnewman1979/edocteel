@@ -7,8 +7,8 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> largestTriangleArea(vector<vector<int>>& points) {
-        vector<int> ret;
+    double largestTriangleArea(vector<vector<int>>& points) {
+        double ret = 0.0;
         return ret;
     }
 };
@@ -55,13 +55,10 @@ int main(int argc, char* argv[])
 
     // ret
     Solution solution;
-    vector<int> retVec = solution.largestTriangleArea(valueGrid);
+    double ret = solution.largestTriangleArea(valueGrid);
 
     // output
-    for (auto p : retVec) {
-        cout << p << endl;
-    }
+    cout << ret << endl;
 
     return 0;
 }
-
