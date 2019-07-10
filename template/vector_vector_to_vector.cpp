@@ -2,6 +2,8 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include "Input.hh"
+#include "Output.hh"
 
 using namespace std;
 
@@ -13,54 +15,18 @@ public:
     }
 };
 
-template <typename baseType>
-void loadGrid(vector<vector<baseType>>& valueGrid) {
-    int x, y;
-    baseType value;
-    vector<baseType> valueVec;
-    cin >> x;
-    while (x-- > 0) {
-        cin >> y;
-        while (y-- > 0) {
-            cin >> value;
-            valueVec.push_back(value);
-        }
-        valueGrid.push_back(valueVec);
-    }
-}
-
-template <>
-void loadGrid(vector<vector<string>>& valueGrid) {
-    int x, y;
-    string value;
-    vector<string > valueVec;
-    cin >> x;
-    while (x-- > 0) {
-        cin >> y;
-        while (y-- > 0) {
-            getline(cin, value);
-            valueVec.push_back(value);
-        }
-        valueGrid.push_back(valueVec);
-    }
-}
-
 int main(int argc, char* argv[])
 {
     // input
-    vector< vector<int> > valueGrid;
+    vector<vector<int>> valueGrid;
+    Input(valueGrid);
 
-    // handle input
-    loadGrid(valueGrid);
-
-    // ret
+    // solution
     Solution solution;
     vector<int> retVec = solution.largestTriangleArea(valueGrid);
 
     // output
-    for (auto p : retVec) {
-        cout << p << endl;
-    }
+    Output(retVec);
 
     return 0;
 }

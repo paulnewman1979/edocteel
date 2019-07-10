@@ -9,24 +9,24 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int> > transpose(vector<vector<int>>& A) {
-        vector<vector<int> > results;
-        return results;
+    int largestTriangleArea(vector<vector<int>>& points) {
+        int ret = 0.0;
+        return ret;
     }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-	vector< vector<int> > edges;
-    Input(edges);
+    vector<vector<int>> valueGrid;
+    Input(valueGrid);
 
     // solution
     Solution solution;
-	vector<vector<int> > results = solution.transpose(edges);
+    int ret = solution.largestTriangleArea(valueGrid);
 
     // output
-    Output(results);
+    Output(ret);
 
     return 0;
 }
