@@ -1,5 +1,5 @@
 main: main.cpp
-	g++ -Wall -Werror -g -o main main.cpp -std=c++0x
+	g++ -Wall -Werror -g -o main main.cpp -std=c++17
 
 clean:
 	rm -f main

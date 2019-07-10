@@ -37,12 +37,12 @@ int main(int argc, char* argv[])
     Solution solution;
 	vector<vector<int> > results = solution.transpose(edges);
     for (int i = 0; i < results.size(); ++i) {
-        for (int j = 0; j < results[i].size(); ++i) {
-            cout << results[i][j] << "\t";
+        cout << results[i][0];
+        for (int j = 1; j < results[i].size(); ++j) {
+            cout << "\t" << results[i][j];
         }
         cout << endl;
     }
-    cout << endl;
 
     return 0;
 }
