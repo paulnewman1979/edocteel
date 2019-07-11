@@ -17,7 +17,19 @@ void Input(vector<baseType>& valueVec) {
     int n;
     cin >> n;
     while (n-- > 0) {
-        cin >> value;
+        Input(value);
+        valueVec.push_back(value);
+    }
+}
+
+template <>
+void Input(vector<string>& valueVec) {
+    string value;
+    int n;
+    cin >> n;
+    getline(cin, value);
+    while (n-- > 0) {
+        getline(cin, value);
         valueVec.push_back(value);
     }
 }

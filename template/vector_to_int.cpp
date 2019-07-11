@@ -9,8 +9,9 @@ using namespace std;
 
 class Solution {
 public:
-    int numSpecialEquivGroups(vector<string>& A) {
-        return 0;
+    int xorGame(vector<string>& nums) {
+        int ret = 0;
+        return ret;
     }
 };
 
@@ -22,7 +23,7 @@ int main(int argc, char* argv[])
 
     // solution
     Solution solution;
-    int ret = solution.numSpecialEquivGroups(values);
+    int ret = solution.xorGame(values);
 
     // output
     Output(ret);
