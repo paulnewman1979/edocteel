@@ -40,6 +40,7 @@ void Input(vector<vector<baseType>>& valueGrid) {
     vector<baseType> valueVec;
     cin >> n;
     while (n-- > 0) {
+        valueVec.clear();
         Input(valueVec);
         valueGrid.push_back(valueVec);
     }
