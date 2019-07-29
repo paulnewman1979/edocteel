@@ -9,21 +9,20 @@ using namespace std;
 
 class Solution {
 public:
-    int xorGame(vector<string>& nums) {
-        int ret = 0;
-        return ret;
+    double soupServings(int N) {
+        return 0.0;
     }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-    vector<string> valueVec;
-    Input(valueVec);
+    int value;
+    Input(value);
 
     // solution
     Solution solution;
-    int ret = solution.xorGame(valueVec);
+    double ret = solution.soupServings(value);
 
     // output
     Output(ret);
