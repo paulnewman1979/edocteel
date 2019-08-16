@@ -20,8 +20,12 @@ void Output(vector<baseType>& valueVec) {
 
 template <typename baseType>
 void Output(vector<vector<baseType>>& valueGrid) {
+    cout << valueGrid.size() << endl;
     for (auto p : valueGrid) {
-        Output(p);
+        cout << p.size();
+        for (auto q : p) {
+            cout << " " << q;
+        }
         cout << endl;
     }
 }
