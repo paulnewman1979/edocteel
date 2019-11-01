@@ -27,6 +27,7 @@ void Input(vector<string>& valueVec) {
     string value;
     int n;
     cin >> n;
+    // finish the last line with n
     getline(cin, value);
     while (n-- > 0) {
         getline(cin, value);
@@ -58,3 +59,25 @@ void Input(bool& value) {
     value = (valueInt == 0) ? false : true;
 }
 
+template <typename baseType>
+struct BaseListNode {
+    baseType val;
+    BaseListNode *next;
+    BaseListNode(baseType x) : val(x), next(NULL) {}
+};
+
+template <typename baseType>
+void Input(BaseListNode<baseType>*& head) {
+    vector<baseType> valueVec;
+    Input(valueVec);
+    BaseListNode<baseType>* tail = NULL;
+    for (auto value : valueVec) {
+        if (tail == NULL) {
+            head = new BaseListNode(value);
+            tail = head;
+        } else {
+            tail->next = new BaseListNode(value);
+            tail = tail->next;
+        }
+    }
+}
