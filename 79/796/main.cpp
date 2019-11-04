@@ -11,7 +11,9 @@ using namespace std;
 class Solution {
 public:
     bool rotateString(string A, string B) {
-        return true;
+        if (A.length() != B.length()) return false;
+        string AA = A + A;
+        return (AA.find(B) != string::npos);
     }
 };
 
