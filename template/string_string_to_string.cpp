@@ -9,20 +9,23 @@ using namespace std;
 
 class Solution {
 public:
-    int preimageSizeFZF(int K) {
-        return 0;
+    string customSortString(string S, string T) {
+        string ret;
+        return ret;
     }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-    int K;
-    Input(K);
+	string a;
+	string b;
+    Input(a);
+    Input(b);
 
     // solution
     Solution solution;
-    int ret = solution.preimageSizeFZF(K);
+    string ret = solution.customSortString(a, b);
 
     // output
     Output(ret);
