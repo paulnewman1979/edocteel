@@ -4,28 +4,30 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+
 #include "../../template/common/Input.hh"
 #include "../../template/common/Output.hh"
 
 using namespace std;
 
+typedef MyTreeNode<int> TreeNode;
+
 class Solution {
 public:
-    vector<string> letterCasePermutation(string S) {
-        vector<string> results;
-        return results;
+    int minDiffInBST(TreeNode* root) {
+        return 0;
     }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-    string S;
-    Input(S);
+    TreeNode* root;
+    Input(root);
 
     // solution
     Solution solution;
-    vector<string> ret = solution.letterCasePermutation(S);
+    int ret = solution.minDiffInBST(root);
 
     // output
     Output(ret);

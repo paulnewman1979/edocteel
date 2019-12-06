@@ -8,19 +8,21 @@ using namespace std;
 /**
  * Definition for singly-linked list.
  */
+template <typename baseType>
 struct ListNode {
-    int val;
+    baseType val;
     ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(baseType x) : val(x), next(NULL) {}
 };
 
 /**
  * Definition for a binary tree node.
  */
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+template <typename baseType>
+struct MyTreeNode {
+    baseType val;
+    MyTreeNode *left;
+    MyTreeNode *right;
+    MyTreeNode(baseType x) : val(x), left(NULL), right(NULL) {}
 };
 
