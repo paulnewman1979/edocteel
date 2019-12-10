@@ -2,30 +2,31 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
-
 #include "../../template/common/Input.hh"
 #include "../../template/common/Output.hh"
+
 
 using namespace std;
 
 class Solution {
 public:
-     bool reachingPoints(int sx, int sy) {
-		bool ret = 0;
-		return ret;
+    int numJewelsInStones(string J, string S) {
+        int ret = 0;
+        return ret;
     }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-    int sx, sy;
-    Input(sx);
-    Input(sy);
+	string a;
+	string b;
+    Input(a);
+    Input(b);
 
     // solution
     Solution solution;
-    bool ret = solution.reachingPoints(sx, sy);
+    int ret = solution.numJewelsInStones(a, b);
 
     // output
     Output(ret);
