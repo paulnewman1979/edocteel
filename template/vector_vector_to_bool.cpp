@@ -5,26 +5,25 @@
 #include "../../template/common/Input.hh"
 #include "../../template/common/Output.hh"
 
-
 using namespace std;
 
 class Solution {
 public:
-    string reorganizeString(string S) {
-        string result;
-        return result;
-	}
+    bool isToeplitzMatrix(vector<vector<int>>& matrix) {
+        bool ret = true;
+        return ret;
+    }
 };
 
 int main(int argc, char* argv[])
 {
     // input
-    string str;
-    Input(str);
+    vector<vector<int>> valueGrid;
+    Input(valueGrid);
 
     // solution
     Solution solution;
-	string ret = solution.reorganizeString(str);
+    bool ret = solution.isToeplitzMatrix(valueGrid);
 
     // output
     Output(ret);
