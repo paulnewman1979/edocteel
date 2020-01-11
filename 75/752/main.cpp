@@ -13,42 +13,36 @@ public:
         int ret = 0, i;
         char ch;
         unordered_set<string> mark;
-        for (auto p : deadends) {
-            mark.insert(p);
-            //cout << "bad: " << p << endl;
-        }
-        if (mark.find("0000") != mark.end()) return -1;
+
+        for (auto p : deadends) mark.insert(p);
+
+        if (mark.find("0000") != mark.end() ||
+                mark.find(target) != mark.end())
+            return -1;
 
         vector<string> todo;
+        mark.insert("0000");
         todo.push_back("0000");
         while (todo.size() > 0) {
             ++ret;
-            vector<string> tmp;
+            vector<string> newTodo;
             for (auto p : todo) {
                 for (i = 0; i < 4; ++i) {
                     ch = p[i];
 
-                    if (p[i] == '9') p[i] = '0'; else p[i] = p[i] + 1;
-                    if (mark.find(p) == mark.end()) {
-                        //cout << "good: " << p << endl;
-                        mark.insert(p);
-                        tmp.push_back(p);
-                    }
+                    p[i] = (p[i] == '9') ? p[i] = '0' : (p[i] + 1);
+                    if (mark.find(p) == mark.end()) { mark.insert(p); newTodo.push_back(p); }
                     p[i] = ch;
 
-                    if (p[i] == '0') p[i] = '9'; else p[i] = p[i] - 1;
-                    if (mark.find(p) == mark.end()) {
-                        //cout << "good: " << p << endl;
-                        mark.insert(p);
-                        tmp.push_back(p);
-                    }
+                    p[i] = (p[i] == '0') ? p[i] = '9' : (p[i] - 1);
+                    if (mark.find(p) == mark.end()) { mark.insert(p); newTodo.push_back(p); }
 
                     p[i] = ch;
                 }
             }
 
             if (mark.find(target) == mark.end()) {
-                todo.swap(tmp);
+                todo.swap(newTodo);
             } else {
                 return ret;
             }
