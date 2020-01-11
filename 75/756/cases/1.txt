@@ -1,0 +1,6 @@
+BCD
+4
+BCG
+CDE
+GEA
+FFF

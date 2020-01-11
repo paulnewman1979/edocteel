@@ -1,0 +1,7 @@
+AABA
+5
+AAA
+AAB
+ABA
+ABB
+BAC
