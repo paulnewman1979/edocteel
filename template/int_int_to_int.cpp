@@ -10,8 +10,8 @@ using namespace std;
 
 class Solution {
 public:
-     bool reachingPoints(int sx, int sy) {
-		bool ret = 0;
+     int reachingPoints(int sx, int sy) {
+		int ret = 0;
 		return ret;
     }
 };
@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
     // solution
     Solution solution;
-    bool ret = solution.reachingPoints(sx, sy);
+    int ret = solution.reachingPoints(sx, sy);
 
     // output
     Output(ret);

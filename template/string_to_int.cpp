@@ -2,22 +2,30 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include "../../template/common/Input.hh"
+#include "../../template/common/Output.hh"
 
 using namespace std;
 
 class Solution {
 public:
-    int titleToNumber(string s) {
+    int evaluate(string expression) {
         return 0;
 	}
 };
 
 int main(int argc, char* argv[])
 {
+    // input
     string str;
-	getline(std::cin, str);
+    Input(str);
+
+    // solution
     Solution solution;
-	cout << solution.titleToNumber(str) << endl;
+	int ret = solution.evaluate(str);
+
+    // output
+    Output(ret);
 
     return 0;
 }
