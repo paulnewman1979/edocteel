@@ -1,3 +1,6 @@
+#ifndef __TYPES_HH__
+#define __TYPES_HH__
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,10 +12,10 @@ using namespace std;
  * Definition for singly-linked list.
  */
 template <typename baseType>
-struct ListNode {
+struct BaseListNode {
     baseType val;
-    ListNode *next;
-    ListNode(baseType x) : val(x), next(NULL) {}
+    BaseListNode *next;
+    BaseListNode(baseType x) : val(x), next(NULL) {}
 };
 
 /**
@@ -26,3 +29,4 @@ struct MyTreeNode {
     MyTreeNode(baseType x) : val(x), left(NULL), right(NULL) {}
 };
 
+#endif

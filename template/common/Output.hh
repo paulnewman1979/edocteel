@@ -1,8 +1,12 @@
+#ifndef __OUTPUT_H__
+#define __OUTPUT_H__
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
 #include <unordered_set>
+#include "Types.hh"
 
 using namespace std;
 
@@ -34,3 +38,14 @@ template <>
 void Output(bool& value) {
     cout << (value?"true":"false") << endl;
 }
+
+template <typename baseType>
+void Output(BaseListNode<baseType>* node) {
+    BaseListNode<baseType>* cur = node;
+    while (cur != NULL) {
+        cout << cur->val << " ";
+    }
+    cout << endl;
+}
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef __INPUT_HH__
+#define __INPUT_HH__
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -109,13 +112,6 @@ void Input(bool& value) {
 }
 
 template <typename baseType>
-struct BaseListNode {
-    baseType val;
-    BaseListNode *next;
-    BaseListNode(baseType x) : val(x), next(NULL) {}
-};
-
-template <typename baseType>
 void Input(BaseListNode<baseType>*& head) {
     vector<baseType> valueVec;
     Input(valueVec);
@@ -130,3 +126,5 @@ void Input(BaseListNode<baseType>*& head) {
         }
     }
 }
+
+#endif
