@@ -1,0 +1,4 @@
+3
+a/*comment
+line
+more_comment*/b
