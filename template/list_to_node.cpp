@@ -2,17 +2,12 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include "../../template/common/Input.hh"
+#include "../../template/common/Output.hh"
 
 using namespace std;
 
-/**
- * Definition for singly-linked list.
- */
-struct ListNode {
-    int val;
-    ListNode *next;
-    ListNode(int x) : val(x), next(NULL) {}
-};
+typedef BaseListNode<int> ListNode;
 
 class Solution {
 public:
@@ -41,39 +36,18 @@ public:
     }
 };
 
-ListNode* load(vector<int> &nums)
-{
-    ListNode *head = NULL;
-    ListNode *tail = NULL;
-    for (size_t i = 0; i < nums.size(); i++) {
-        if (NULL == head) {
-            head = new ListNode(nums[i]);
-            tail = head;
-        } else {
-            tail->next = new ListNode(nums[i]);
-            tail = tail->next;
-        }
-    }
-    return head;
-}
-
 int main(int argc, char* argv[])
 {
-	vector<int> values;
+    // input
+    ListNode* head = NULL;
+    Input(head);
 
-    int n;
-    int value;
-	cin >> n;
-	while (--n >= 0) {
-        cin >> value;
-		values.push_back(value);
-	}
-
-    ListNode* root = load(values);
-		
+    // process
     Solution solution;
-    ListNode* midNode = solution.middleNode(root);
-	cout << midNode->val << endl;
+    ListNode* midNode = solution.middleNode(head);
+
+    // output
+	Output(midNode->val);
 
     return 0;
 }
