@@ -57,7 +57,7 @@ void Input(string& value) {
 }
 
 template <typename baseType>
-void Input(MyTreeNode<baseType>*& root) {
+void Input(BaseTreeNode<baseType>*& root) {
     unsigned int n;
     unsigned int i;
     unsigned int index;
@@ -68,7 +68,7 @@ void Input(MyTreeNode<baseType>*& root) {
     unsigned int rightIndex;
 
     cin >> n;
-    vector<MyTreeNode<baseType>*> nodes(n, NULL);
+    vector<BaseTreeNode<baseType>*> nodes(n, NULL);
     i = 0;
     while (i < n) {
         cin >> index;
@@ -78,7 +78,7 @@ void Input(MyTreeNode<baseType>*& root) {
         assert(i == index);
 
         if (nodes[i] == NULL) {
-            nodes[i] = new MyTreeNode(value);
+            nodes[i] = new BaseTreeNode(value);
         } else {
             nodes[i]->val = value;
         }
@@ -86,7 +86,7 @@ void Input(MyTreeNode<baseType>*& root) {
             leftIndex = atoi(lindex.c_str());
             assert(leftIndex < n);
             if (nodes[leftIndex] == NULL) {
-                nodes[leftIndex] = new MyTreeNode(0);
+                nodes[leftIndex] = new BaseTreeNode(0);
             }
             nodes[i]->left = nodes[leftIndex];
         }
@@ -94,7 +94,7 @@ void Input(MyTreeNode<baseType>*& root) {
             rightIndex = atoi(rindex.c_str());
             assert(rightIndex < n);
             if (nodes[rightIndex] == NULL) {
-                nodes[rightIndex] = new MyTreeNode(0);
+                nodes[rightIndex] = new BaseTreeNode(0);
             }
             nodes[i]->right = nodes[rightIndex];
         }

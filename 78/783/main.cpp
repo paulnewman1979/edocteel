@@ -10,7 +10,7 @@
 
 using namespace std;
 
-typedef MyTreeNode<int> TreeNode;
+typedef BaseTreeNode<int> TreeNode;
 
 class Solution {
 public:

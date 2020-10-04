@@ -24,13 +24,13 @@ struct BaseListNode {
  * Definition for a binary tree node.
  */
 template <typename baseType>
-struct MyTreeNode {
+struct BaseTreeNode {
     baseType val;
-    MyTreeNode<baseType>* left;
-    MyTreeNode<baseType>* right;
-    MyTreeNode(const baseType pval,
-               MyTreeNode<baseType>* pleft = NULL,
-               MyTreeNode<baseType>* pright = NULL)
+    BaseTreeNode<baseType>* left;
+    BaseTreeNode<baseType>* right;
+    BaseTreeNode(const baseType pval,
+               BaseTreeNode<baseType>* pleft = NULL,
+               BaseTreeNode<baseType>* pright = NULL)
         : val(pval), left(pleft), right(pright) {}
 };
 

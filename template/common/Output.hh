@@ -49,4 +49,32 @@ void Output(BaseListNode<baseType>* node) {
     cout << endl;
 }
 
+template <typename baseType>
+void Output(BaseTreeNode<baseType>* node) {
+    if (NULL == node) return;
+    int size = 0, curIndex = 0;
+    vector<BaseTreeNode<baseType>*> treeVec;
+    treeVec.push_back(node);
+    ++size;
+    while (curIndex < size) {
+        BaseTreeNode<baseType>* cur = treeVec[curIndex];
+        cout << curIndex << "\t" << cur->val;
+        if (cur->left != NULL) {
+            treeVec.push_back(cur->left);
+            cout << "\t" << size;
+            ++size;
+        } else {
+            cout << "\tn";
+        }
+        if (cur->right != NULL) {
+            treeVec.push_back(cur->right);
+            cout << "\t" << size << endl;
+            ++size;
+        } else {
+            cout << "\tn" << endl;
+        }
+        ++curIndex;
+    }
+}
+
 #endif
