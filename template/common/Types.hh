@@ -14,8 +14,10 @@ using namespace std;
 template <typename baseType>
 struct BaseListNode {
     baseType val;
-    BaseListNode *next;
-    BaseListNode(baseType x) : val(x), next(NULL) {}
+    BaseListNode* next;
+    BaseListNode(baseType pval,
+                 BaseListNode<baseType>* pnext = NULL)
+        : val(pval), next(pnext) {}
 };
 
 /**
@@ -24,9 +26,12 @@ struct BaseListNode {
 template <typename baseType>
 struct MyTreeNode {
     baseType val;
-    MyTreeNode *left;
-    MyTreeNode *right;
-    MyTreeNode(baseType x) : val(x), left(NULL), right(NULL) {}
+    MyTreeNode<baseType>* left;
+    MyTreeNode<baseType>* right;
+    MyTreeNode(const baseType pval,
+               MyTreeNode<baseType>* pleft = NULL,
+               MyTreeNode<baseType>* pright = NULL)
+        : val(pval), left(pleft), right(pright) {}
 };
 
 #endif

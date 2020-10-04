@@ -44,6 +44,7 @@ void Output(BaseListNode<baseType>* node) {
     BaseListNode<baseType>* cur = node;
     while (cur != NULL) {
         cout << cur->val << " ";
+        cur = cur->next;
     }
     cout << endl;
 }
