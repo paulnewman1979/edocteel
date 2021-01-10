@@ -1,0 +1,9 @@
+2
+hello
+leetcode
+
+4
+hello
+hhllo
+hell
+leetcoded
