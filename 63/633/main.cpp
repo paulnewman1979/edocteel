@@ -10,7 +10,14 @@ using namespace std;
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        return true;
+        int min, max, a, b;
+        min = sqrt(c/2);
+        max = sqrt(c);
+        for (a = min; a <= max; ++a) {
+            b = sqrt(c - a * a);
+            if (a * a + b * b == c) return true;
+        }
+        return false;
     }
 };
 
