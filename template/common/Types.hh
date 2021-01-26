@@ -25,13 +25,28 @@ struct BaseListNode {
  */
 template <typename baseType>
 struct BaseTreeNode {
-    baseType val;
-    BaseTreeNode<baseType>* left;
-    BaseTreeNode<baseType>* right;
+    BaseTreeNode() {}
     BaseTreeNode(const baseType pval,
                BaseTreeNode<baseType>* pleft = NULL,
                BaseTreeNode<baseType>* pright = NULL)
         : val(pval), left(pleft), right(pright) {}
+
+    baseType val;
+    BaseTreeNode<baseType>* left;
+    BaseTreeNode<baseType>* right;
+};
+
+template <typename baseType>
+struct ArrayTreeNode {
+    ArrayTreeNode() {}
+    ArrayTreeNode(baseType _val) { val = _val; }
+    ArrayTreeNode(baseType _val, vector<ArrayTreeNode*> _children) {
+        val = _val;
+        children = _children;
+    }
+
+    baseType val;
+    vector<ArrayTreeNode*> children;
 };
 
 #endif

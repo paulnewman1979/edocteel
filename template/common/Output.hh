@@ -77,4 +77,24 @@ void Output(BaseTreeNode<baseType>* node) {
     }
 }
 
+template <typename baseType>
+void Output(ArrayTreeNode<baseType>* node) {
+    if (NULL == node) return;
+    int size = 0, curIndex = 0, i;
+    vector<ArrayTreeNode<baseType>*> treeVec;
+    treeVec.push_back(node);
+    ++size;
+    while (curIndex < size) {
+        ArrayTreeNode<baseType>* cur = treeVec[curIndex];
+        cout << curIndex << "\t" << cur->val << "\t" << cur->children.size();
+        for (i = 0; i < cur->children.size(); ++i) {
+            treeVec.push_back(cur->children[i]);
+            cout << "\t" << size;
+            ++size;
+        }
+        cout << endl;
+        ++curIndex;
+    }
+}
+
 #endif

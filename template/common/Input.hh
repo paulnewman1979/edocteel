@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include <assert.h>
 #include <unordered_set>
 #include "Types.hh"
 
@@ -56,6 +57,7 @@ void Input(string& value) {
     getline(cin, value);
 }
 
+/*
 template <typename baseType>
 void Input(BaseTreeNode<baseType>*& root) {
     unsigned int n;
@@ -72,7 +74,7 @@ void Input(BaseTreeNode<baseType>*& root) {
     i = 0;
     while (i < n) {
         cin >> index;
-        cin >> value;
+		
         cin >> lindex;
         cin >> rindex;
         assert(i == index);
@@ -103,6 +105,47 @@ void Input(BaseTreeNode<baseType>*& root) {
 
     root = nodes[0];
 }
+*/
+
+template <typename baseType>
+void Input(BaseTreeNode<baseType>*& root) {
+    unsigned int n;
+    unsigned int i;
+    unsigned int index;
+    baseType value;
+    string lindex;
+    string rindex;
+    unsigned int leftIndex;
+    unsigned int rightIndex;
+
+    cin >> n;
+    vector<BaseTreeNode<baseType>*> nodes(n);
+    for (i = 0; i < n; ++i) {
+        nodes[i] = new BaseTreeNode<baseType>();
+    }
+    i = 0;
+    while (i < n) {
+        cin >> index;
+		
+        cin >> lindex;
+        cin >> rindex;
+        assert(i == index);
+
+        nodes[i]->val = value;
+        if (lindex != std::string("n")) {
+            leftIndex = atoi(lindex.c_str());
+            assert(leftIndex < n);
+            nodes[i]->left = nodes[leftIndex];
+        }
+        if (rindex != std::string("n")) {
+            rightIndex = atoi(rindex.c_str());
+            nodes[i]->right = nodes[rightIndex];
+        }
+        ++i;
+    }
+
+    root = nodes[0];
+}
 
 template <>
 void Input(bool& value) {
@@ -125,6 +168,37 @@ void Input(BaseListNode<baseType>*& head) {
             tail = tail->next;
         }
     }
+}
+
+template <typename baseType>
+void Input(ArrayTreeNode<baseType>*& root) {
+    unsigned int n, i, j, index, arrayN, nodeIndex;
+    baseType value = 0;
+    string lindex, rindex;
+
+    cin >> n;
+    vector<ArrayTreeNode<baseType>*> nodes(n);
+    for (i = 0; i < n; i++) {
+        nodes[i] = new ArrayTreeNode<baseType>();
+    }
+
+    i = 0;
+    while (i < n) {
+        cin >> index;
+        assert(i == index);
+
+        cin >> value;
+        nodes[index]->val = value;
+        cin >> arrayN;
+        nodes[index]->children.resize(arrayN);
+        for (j = 0; j < arrayN; ++j) {
+            cin >> nodeIndex;
+            nodes[index]->children[j] = nodes[nodeIndex];
+        }
+        ++i;
+    }
+
+    root = nodes[0];
 }
 
 #endif
