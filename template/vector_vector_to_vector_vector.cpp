@@ -9,7 +9,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int> > transpose(vector<vector<int>>& A) {
+    vector<vector<int>> outerTrees(vector<vector<int>>& points) {
         vector<vector<int> > results;
         return results;
     }
@@ -18,12 +18,12 @@ public:
 int main(int argc, char* argv[])
 {
     // input
-	vector< vector<int> > edges;
-    Input(edges);
+	vector< vector<int> > valueGrid;
+    Input(valueGrid);
 
     // solution
     Solution solution;
-	vector<vector<int> > results = solution.transpose(edges);
+	vector<vector<int> > results = solution.outerTrees(valueGrid);
 
     // output
     Output(results);
