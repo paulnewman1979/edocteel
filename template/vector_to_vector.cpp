@@ -9,8 +9,8 @@ using namespace std;
 
 class Solution {
 public:
-    vector<string> topKFrequent(vector<string>& words) {
-        vector<string> ret;
+    vector<int> nextGreaterElements(vector<int>& nums) {
+        vector<int> ret;
         return ret;
     }
 };
@@ -18,12 +18,12 @@ public:
 int main(int argc, char* argv[])
 {
     // input
-    vector<string> words;
-    Input(words);
+    vector<int> valueVec;
+    Input(valueVec);
 
     // solution
     Solution solution;
-    vector<string> ret = solution.topKFrequent(words);
+    vector<int> ret = solution.nextGreaterElements(valueVec);
 
     // output
     Output(ret);

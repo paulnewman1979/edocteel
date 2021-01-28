@@ -126,7 +126,7 @@ void Input(BaseTreeNode<baseType>*& root) {
     i = 0;
     while (i < n) {
         cin >> index;
-		
+        cin >> value;
         cin >> lindex;
         cin >> rindex;
         assert(i == index);

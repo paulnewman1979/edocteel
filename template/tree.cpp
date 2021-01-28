@@ -109,11 +109,17 @@ void clearTree(TreeNode* root) {
 
 int main(int argc, char* argv[])
 {
+    // input
     TreeNode* root = composeTree();
-        
-    Solution solution;
-    cout << solution.action(root) << endl;
 
+    // solution
+    Solution solution;
+    int result1 = solution.action(root);
+
+    // output 1
+    cout << result1 << endl;
+
+    // output 2
     unsigned index = 1;
     printNode(root, 0, index);
 
