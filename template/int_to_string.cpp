@@ -2,23 +2,32 @@
 #include <vector>
 #include <algorithm>
 #include <stdio.h>
+#include <sstream>
+#include "../../template/common/Input.hh"
+#include "../../template/common/Output.hh"
 
 using namespace std;
 
 class Solution {
 public:
-    int calculate(string s) {
-        return 0;
+    string convertToBase7(int num) {
+        string ret;
+        return ret;
     }
 };
 
 int main(int argc, char* argv[])
 {
-    string s;
-    cin >> s;
+    // input
+    int value;
+    Input(value);
 
+    // solution
     Solution solution;
-    cout << solution.calculate(s) << endl;
+    string ret = solution.convertToBase7(value);
+
+    // output
+    Output(ret);
 
     return 0;
 }
