@@ -1,0 +1,7 @@
+2
+2
+encode
+https://leetcode.com/problems/design-tinyurl
+2
+decode
+https://leetcode.com/problems/design-tinyurl
